@@ -1,0 +1,103 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="da">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+	<meta http-equiv="cache-control" content="no-cache">
+	<link rel="icon" type="image/png" href="gfx/icon.png" /> 
+    <title>Youfi</title>
+    <link href="youfi-compact.css" rel="stylesheet" type="text/css" />
+	
+	<!-- All the scripts used by the system -->
+    <script src="youfi.js"></script>
+    <script src="playControls.js"></script>
+    <script src="playlists.js"></script>
+    <script src="results.js"></script>
+    <script src="related.js"></script>
+    <script src="youtubeHandle.js"></script>
+    <script src="auth.js"></script>
+    <script src="keyboardInputHandler.js"></script>
+    <script src="dataParsing.js"></script>
+	
+	<script type="text/javascript">
+		// things to be executed after loading all the elements
+		setTimeout(function(){youfi.init()}, 10);
+	</script>
+  </head>
+  <body>
+	
+	<div id="mainWrapper">
+		<div id="playControls">
+			<div id="prev"		onclick="youfi.playControls.prev()"></div>
+			<div id="stop"		onclick="youfi.playControls.stop()"></div>
+			<div id="playPause" onclick="youfi.playControls.playPause()"></div>
+            <div id="quality">Q</div>
+			<div id="next"		onclick="youfi.playControls.next()"></div>
+			<div id="vol"><div><div></div></div></div>
+		</div>
+		<div id="progressBar">
+			<div></div>
+		</div>
+		<div id="currentSong">
+			<img src="gfx/startLogo.png" alt="cover image" />
+			<div>
+				<p id="title">Welcome to You-Fi</p>
+				<p id="uploader">CyberFox Hax</p>
+			</div>
+		</div>
+		<div id="playlists">
+			<div id="login" onclick="youfi.auth.btnLogin_onClick(this)">
+				Allow access
+			</div>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_donations" />
+				<input type="hidden" name="business" value="SHJT2G34WRTBC" />
+				<input type="hidden" name="lc" value="DK" />
+				<input type="hidden" name="no_note" value="1" />
+				<input type="hidden" name="no_shipping" value="1" />
+				<input type="hidden" name="currency_code" value="USD" />
+				<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHosted">
+				<input
+					type="submit"
+					value="Donate!" 
+					style="
+						width: 100%;
+						background-color:#555555;
+						font-size: 14px;
+						font-weight: bold;
+						padding: 10px 0 10px 0;
+						cursor: pointer;
+						border: none;
+					"
+				/>
+			</form>
+
+		</div>
+		<div id="centerPiece">
+			<div id="search">
+				<input type="text" value="Search Youtube..." />
+			</div>
+			<div id="results">
+				Results
+			</div>
+		</div>
+		<div id="related">
+			<!--
+			<div>
+				<p>♫</p>
+				<p>NOK And klopfgeister - Soultrigger (Day Din Remix)</p>
+				<p>swap4166</p>
+				<p>7:20</p>
+			</div>
+			-->
+		</div>
+		<div id="bottomBar">
+			Powered by Youtube.
+			Written by CyberFox Hax.
+            Also check out the <a href="http://code.google.com/p/youfi-application/issues/list">issue tracker</a> for feedback!
+            <span id="swapTheme">Change Theme</span>
+		</div>
+	</div>
+	<div id="player"></div>
+	
+  </body>
+</html>

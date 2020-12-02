@@ -1,0 +1,460 @@
+*{
+	margin:0;
+	padding:0;
+	font-family: "arial";
+	color: white;
+	font-size:12px;
+	overflow: hidden;
+
+}
+iframe#player{
+	position: absolute;
+	top: 35px;
+	right: 0;
+	height: 1px; /* 100px */
+	width:  1px; /* 150px */
+	z-index: 1000;
+    border: none;
+}
+body{background-color: #222;}
+
+#mainWrapper{
+	width:  100%;
+	height: 100%;
+
+		/* Remove selections */
+	-moz-user-select: 	none;
+	-khtml-user-select: none;
+	-webkit-user-select:none;
+	-ms-user-select: 	none;
+}
+#mainWrapper > div, #centerPiece > div{
+	position: absolute;
+}
+
+	#playControls{
+		cursor: pointer;
+		height: 30px;
+		left: 0;
+		top: 0;
+
+		background-color: #474747;
+	}
+		#playControls > *{
+			float: left;
+			width: 45px;
+			height: 100%;
+			background-color: #555;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		#playControls > *:hover{
+			background-color: #777;
+		}
+		#playControls > #quality{
+			
+		}
+		
+		#playControls > #vol{
+			width: 120px;
+			background-position:10px center;
+		}
+			#playControls > #vol > div{
+				width: 70%;
+				height: 100%;
+				float: right;
+				background-color: #777;
+				opacity: 0.8;
+			}
+				#playControls > #vol > div > div{
+					width: 95%;
+					height: 100%;
+					background-color: #bbb;
+					border-left: 2px solid #fff;
+					border-right: 2px solid #fff;
+				}
+				#playControls > #prev {background-image: url("gfx/prev.png");}
+				#playControls > #stop {background-image: url("gfx/stop.png");}
+				#playControls > #next {background-image: url("gfx/next.png");}
+				#playControls > #vol	  {background-image: url("gfx/vol.png");}
+				#playControls > #playPause{background-image: url("gfx/play.png");}
+				#playControls > #playPause[youfiState=pause]{background-image: url("gfx/pause.png");}
+
+	#progressBar{
+		height: 30px;
+		top: 0;
+		left: 370px;
+		right: 0;
+
+		background-color: #616161;
+	}
+		#progressBar > div{
+			height: 100%;
+			width: 100%;
+			background-color: #c14141;
+		}
+
+	#currentSong{
+		height: 100px;
+		top: 35px;
+		left: 0;
+		right: 0;
+
+		background-color: #474747;
+		float: left;
+
+			/* Remove selections */
+		-moz-user-select: 	none;
+		-khtml-user-select: none;
+		-webkit-user-select:none;
+		-ms-user-select: 	none;
+	}
+	#currentSong[youfiState=error]{
+		background-color: #902727;
+	}
+		#currentSong > img{
+			height: 100%;
+			float: left;
+		}
+		#currentSong > div{
+			float: left;
+			height: 100%;
+			margin: 10px 0 10px 10px;
+
+			color: #fff;
+		}
+			#currentSong > div > p#title{
+				font-weight: bold;
+				font-size: 20px;
+			}
+			#currentSong > div > p#title > a{
+				font-weight: bold;
+				font-size: 20px;
+				text-decoration: none;
+				outline: 0;
+			}
+			#currentSong > div > p#uploader{
+				font-size: 12px;
+			}
+
+	#playlists{
+		width: 150px;
+		top: 140px;
+		bottom: 25px;
+		left: 0;
+
+		background-color: #343434;
+		overflow: auto;
+
+			/* Remove selections */
+		-moz-user-select: 	none;
+		-khtml-user-select: none;
+		-webkit-user-select:none;
+		-ms-user-select: 	none;
+	}
+	/* floating input field used for renaming playlists */
+	#renameBox{
+		border: none;
+		width: 120px;
+		padding-left: 30px;
+
+		background-image: url("gfx/plEdit.png");
+		background-repeat: no-repeat;
+		background-color: #191919;
+
+	}
+		/* login btn */
+		#playlists > #login{
+			padding: 20px 0 20px 20px;
+			cursor: pointer;
+		}
+		#playlists > #login:hover{
+			background-color: #777;
+		}
+		/* Playlists title field */
+		#playlists > div:nth-child(1){
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0;
+			padding: 10px 0 8px 5px;
+			margin-bottom: 10px;
+			background-color: #555;
+			cursor: default;
+		}
+
+		/* Playlists Items */
+		#playlists > div:nth-child(2) > div{
+			cursor: pointer;
+			margin-bottom: 5px;
+			padding-left: 30px;
+			background-image: url("gfx/plIcon.png");
+			background-repeat: no-repeat;
+		}
+		#playlists > div:nth-child(2) > div[youfiType=favorites]{
+			background-image: url("gfx/plFave.png");
+		}
+		#playlists > div:nth-child(2) > div[youfiState=inactive]{
+			background-color: #555 !important;
+		}
+		#playlists > div:nth-child(2) > div[youfiState=active]{
+			background-color: #a9d9fe !important;
+			color: black !important;
+		}
+		#playlists > div:nth-child(2) > div[youfiState=playing]{
+			background-color: #191919 !important;
+			color: #9f6 !important;
+		}
+
+		/* Playlists add new btn */
+		#playlists > div:nth-child(3){
+			cursor: pointer;
+			background-image: url("gfx/plAddNew.png");
+			background-repeat: no-repeat;
+			padding-left: 23px;
+			margin-top: 20px;
+		}
+
+	#centerPiece{	
+		top		: 140px;
+		right	: 155px;
+		bottom	: 25px;
+		left	: 155px;
+	}
+		#search{
+			background-color: #545454;
+			height: 35px;
+			margin-bottom: 10px;
+			top: 0;
+			right: 0;
+			left: 0;
+		}
+			#search > input{
+				position: absolute;
+				width: 97.7%;
+				height: 77%;
+				margin: 3px -10px -20px 3px;
+				padding-left: 10px;
+				font-weight: bold;
+				font-size: 14px;
+
+				background-color: #949494;
+				border: 1px solid #6e6e6e;
+
+				-moz-user-select: 	text;
+				-khtml-user-select: text;
+				-webkit-user-select:text;
+				-ms-user-select: 	text;
+			}
+
+		#results{
+			cursor: pointer;
+			top: 40px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			overflow: auto;
+
+			background-color: #272727;
+
+				/* Remove selections */
+			-moz-user-select: 	none;
+			-khtml-user-select: none;
+			-webkit-user-select:none;
+			-ms-user-select: 	none;
+		}
+			#results > div{
+				overflow: visible;
+			}
+
+			#results > div > table{
+				border-collapse:collapse;
+				width: 100%;
+			}
+
+			/* main title row style */
+			#results > div > table > tr:first-child > td{
+				text-transform: capitalize;
+				background-color: #999;
+				color: black;
+				font-weight: bold;
+				font-size: 14px;
+				padding: 3px;
+				cursor: default;
+				border-left: 1px solid black;
+			}
+			#results > div > table > tr[youfiState=brokenEntry]{
+				background-color: #702727 !important; 
+			}
+			#results > div > table > tr[youfiState=inactive]{
+				background-color: #444 !important;
+			}
+			#results > div > table > tr[youfiState=active]{
+				background-color: #a9d9fe !important;
+			}
+				#results > div > table > tr[youfiState=active] > td{
+					color: black !important;
+				}
+			#results > div > table > tr[youfiState=warning]{
+				background-color: #b52 !important;
+			}
+				#results > div > table > tr[youfiState=warning] > td{
+					color: black !important;
+				}
+			#results > div > table > tr[youfiState=playing]{
+				background-color: #191919 !important;
+			}
+				#results > div > table > tr[youfiState=playing] > td{
+					color: #9f6 !important;
+				}
+			#results > div > table > tr[youfiState=drag]{
+				background-image: url("gfx/downArrow.png");
+				background-repeat: repeat-x;
+			}
+			#results > div > table > tr[youfiState=dragReverse]{
+				background-image: url("gfx/upArrow.png");
+				background-repeat: repeat-x;
+			}
+
+			/* Row style */
+			#results > div > table > tr:nth-of-type(even){
+				background-color: #2d2d2d;
+			}
+			#results > div > table > tr:nth-of-type(odd){
+				background-color: #272727;
+			}
+
+				/* Each cell */
+				#results > div > table > tr > td{
+					padding: 3px 0 3px 5px;
+					color: #e7e7e7;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+
+
+	#related{
+		width: 150px;
+		top: 140px;
+		right: 0;
+		bottom: 25px;
+
+		background-color: #343434;
+		cursor: pointer;
+
+			/* Remove selections */
+		-moz-user-select: 	none;
+		-khtml-user-select: none;
+		-webkit-user-select:none;
+		-ms-user-select: 	none;
+	}
+		/* results title field */
+		#related > div:nth-child(1){
+			font-size: 14px;
+			font-weight: bold;
+			height: 18px;
+			padding: 10px 0 8px 5px;
+			background-color: #555 !important;
+			cursor: default;
+		}
+		/* Row style */
+		#related > div{
+			padding: 5px;
+			height: 55px;
+		}
+		#related > div:nth-of-type(even){
+			background-color: #383838;
+		}
+		#related > div:nth-of-type(odd){
+			background-color: #494949;
+		}
+			/* Note symbol */
+			#related > div > p:nth-of-type(1){
+				font-size: 30px;
+				width: 28px;
+				float: left;
+			}
+			/* Song title */
+			#related > div > p:nth-of-type(2){
+				font-size: 10px;
+				font-weight: bold;
+				float: left;
+				width: 109px;
+				height: 44px;
+			}
+			/* Uploader */
+			#related > div > p:nth-of-type(3){
+				font-size: 9px;
+				font-style: italic;
+				float: left;
+			}
+			/* Duration */
+			#related > div > p:nth-of-type(4){
+				font-size: 9px;
+				float:right;
+			}
+		#related > div[youfiState=brokenEntry]{
+			background-color: #702727 !important; 
+		}
+		#related > div[youfiState=inactive]{
+			background-color: #999 !important;
+		}
+		#related > div[youfiState=active]{
+			background-color: #a9d9fe !important;
+		}
+			#related > div[youfiState=active] > p{
+				color: black !important;
+			}
+		#related > div[youfiState=warning]{
+			background-color: #b52 !important;
+		}
+			#related > div[youfiState=warning] > p{
+				color: black !important;
+			}
+		#related > div[youfiState=playing]{
+			background-color: #191919 !important;
+		}
+			#related > div[youfiState=playing] > p{
+				color: #9f6 !important;
+			}
+
+	#bottomBar{
+		height: 17px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #515151;
+		color: black;
+		font-weight: bold;
+		padding-top:3px;
+		padding-left: 10px;
+
+			/* Remove selections */
+		-moz-user-select: 	none;
+		-khtml-user-select: none;
+		-webkit-user-select:none;
+		-ms-user-select: 	none;
+	}
+	#bottomBar #swapTheme{
+		float:right;
+	}
+/* dragElemet */
+#dragging{
+	padding: 5px 5px 5px 11px;
+	height: 55px;
+	width:  45px;
+	background-color: rgba(150,150,150,0.5);
+	border: 1px dashed black;
+	cursor: pointer;
+
+		/* Remove selections */
+	-moz-user-select: 	none;
+	-khtml-user-select: none;
+	-webkit-user-select:none;
+	-ms-user-select: 	none;
+}
+	/* Note symbol */
+	#dragging > p:nth-of-type(1){
+		font-size: 45px;
+		width: 28px;
+		float: left;
+	}
