@@ -19,7 +19,6 @@
     <script src="dataParsing.js"></script>
 	
 	<script type="text/javascript">
-		// things to be executed after loading all the elements
 		setTimeout(function(){youfi.init()}, 10);
 	</script>
   </head>
@@ -48,29 +47,6 @@
 			<div id="login" onclick="youfi.auth.btnLogin_onClick(this)">
 				Allow access
 			</div>
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_donations" />
-				<input type="hidden" name="business" value="SHJT2G34WRTBC" />
-				<input type="hidden" name="lc" value="DK" />
-				<input type="hidden" name="no_note" value="1" />
-				<input type="hidden" name="no_shipping" value="1" />
-				<input type="hidden" name="currency_code" value="USD" />
-				<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHosted">
-				<input
-					type="submit"
-					value="Donate!" 
-					style="
-						width: 100%;
-						background-color:#555555;
-						font-size: 14px;
-						font-weight: bold;
-						padding: 10px 0 10px 0;
-						cursor: pointer;
-						border: none;
-					"
-				/>
-			</form>
-
 		</div>
 		<div id="centerPiece">
 			<div id="search">
@@ -93,7 +69,7 @@
 		<div id="bottomBar">
 			Powered by Youtube.
 			Written by CyberFox Hax.
-            Also check out the <a href="http://code.google.com/p/youfi-application/issues/list">issue tracker</a> for feedback!
+            Also check out the <a href="https://github.com/CyberFoxHax/YouFi/issues">issue tracker</a> for feedback!
             <span id="swapTheme">Change Theme</span>
 		</div>
 	</div>

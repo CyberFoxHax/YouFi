@@ -153,5 +153,5 @@ window.onbeforeunload = function(event){
 	if(youfi.playControls.playerState == youfi.playControls.playerStates.stopped)
 		event.preventDefault();
 	else
-		return "Are you serious? You've still got music playing!";
+		return "Are you serious? You've still got some tunes playing!";
 }

@@ -3,7 +3,11 @@ youfi.auth=new function(){
 	this.lifeTime=0;
 	this.tokenType="";
 	this.accessKey="";
-	this.link="https://accounts.google.com/o/oauth2/auth?client_id=98813385899.apps.googleusercontent.com&redirect_uri=https://googledrive.com/host/0Bxsg2VAdqvTKNGs2NVhCaUk4dFU/&scope=https://gdata.youtube.com&response_type=token";
+	this.link="https://accounts.google.com/o/oauth2/auth"
+		+"?client_id=98813385899.apps.googleusercontent.com"
+		+"&redirect_uri=https://cyberfoxhax.github.io/YouFi/OAuthHandler"
+		+"&scope=https://gdata.youtube.com"
+		+"&response_type=token";
 	this.timeoutId=0;
 	this.apiKey="AIzaSyCOsTtoPC15MI_fqqhus4CLv0uVnYv2pZA";
 	
