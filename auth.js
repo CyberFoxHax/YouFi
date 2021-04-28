@@ -26,6 +26,8 @@ youfi.auth=new function(){
 		document.body.appendChild(youfi.auth.windowHandle);
 	}
 	this.onResponse=function(event){
+		if(event.data typeof "string" == false)
+			return;
 		var message = JSON.parse(event.data[0]);
 		if(message.signature != "EFzOoCth9a")
 			return;
