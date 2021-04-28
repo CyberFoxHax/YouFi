@@ -4,12 +4,15 @@
     <title>Youfi</title>
 	<script type="text/javascript">
 		setTimeout(function(){
-
             if(document.location.hash!=""){
+				var message = {
+					"signature": "EFzOoCth9a",
+					"message" : window.location.hash
+				};
                 if(window.opener!=null)
-        		    window.opener.postMessage(window.location.hash, "*");
+        		    window.opener.postMessage(JSON.stringify(message), "*");
                 else
-                    parent.postMessage(window.location.hash, "*");
+                    parent.postMessage(JSON.stringify(message), "*");
                     
                 document.body.innerHTML="Authentication complete. This window should close automatically!";
     		}

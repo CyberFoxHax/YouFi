@@ -26,11 +26,13 @@ youfi.auth=new function(){
 		document.body.appendChild(youfi.auth.windowHandle);
 	}
 	this.onResponse=function(event){
-		if(event.data[0]=='{') return; // filter out spam from the embedded player
+		var message = JSON.parse(event.data[0]);
+		if(message.signature != "EFzOoCth9a")
+			return;
 		window.removeEventListener("message", youfi.auth.onResponse);
 		
 		// parse data
-		var data=event.data.substring(1).split("&");
+		var data=message.message.substring(1).split("&");
 		var json={};
 		for(var i in data){
 			var indexOfIt=data[i].indexOf("=");
