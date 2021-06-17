@@ -4,12 +4,12 @@ youfi.auth=new function(){
 	this.tokenType="";
 	this.accessKey="";
 	this.link="https://accounts.google.com/o/oauth2/auth"
-		+"?client_id=98813385899.apps.googleusercontent.com"
+		+"?client_id=266746415306-9ckov9p9isv3kknhllf6jerjno7qlpt6.apps.googleusercontent.com"
 		+"&redirect_uri=https://cyberfoxhax.github.io/YouFi/OAuthHandler"
 		+"&scope=https://gdata.youtube.com"
 		+"&response_type=token";
 	this.timeoutId=0;
-	this.apiKey="AIzaSyCOsTtoPC15MI_fqqhus4CLv0uVnYv2pZA";
+	this.apiKey="AIzaSyC7siu7rgcTfIA-Ft0tI2W146kqUP1qSSU";
 	
 	this.btnLogin_onClick=function(){
 		window.addEventListener("message", youfi.auth.onResponse);
